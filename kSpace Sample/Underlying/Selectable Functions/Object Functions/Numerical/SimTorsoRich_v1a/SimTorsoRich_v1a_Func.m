@@ -34,7 +34,7 @@ zlen1 = 430;
 xrelrad1 = ZF*(xdiam1/2/PROJdgn.fov)/SS;
 yrelrad1 = ZF*(ydiam1/2/PROJdgn.fov)/SS;
 zrelrad1 = ZF*(zlen1/2/PROJdgn.fov)/SS;
-parfor x = 1:ZF
+for x = 1:ZF
     for y = 1:ZF
         for z = 1:ZF
             if (((x-CX)/xrelrad1)^2 + ((y-CY)/yrelrad1)^2 <= 1) && abs(z-CZ+zoffset1) <= zrelrad1
@@ -54,7 +54,7 @@ zoffset2 = -20;
 xrelrad2 = ZF*(xdiam2/2/PROJdgn.fov)/SS;
 yrelrad2 = ZF*(ydiam2/2/PROJdgn.fov)/SS;
 zrelrad2 = ZF*(zlen2/2/PROJdgn.fov)/SS;
-parfor x = 1:ZF
+for x = 1:ZF
     for y = 1:ZF
         for z = 1:ZF
             if (((x-CX)/xrelrad2)^2 + ((y-CY)/yrelrad2)^2 <= 1) && abs(z-CZ+zoffset2) <= zrelrad2
@@ -76,7 +76,7 @@ zrelrad3 = ZF*(zlen3/2/PROJdgn.fov)/SS;
 CX = (ZF+1)/2;
 CY = (ZF+1)/2 + yrelrad1 + yrelrad3;
 CZ = (ZF+1)/2;
-parfor x = 1:ZF
+for x = 1:ZF
     for y = 1:ZF
         for z = 1:ZF
             if (((x-CX)/xrelrad3)^2 + ((y-CY)/yrelrad3)^2 <= 1) && abs(z-CZ+zoffset1) <= zrelrad3
@@ -98,7 +98,7 @@ zrelrad4 = ZF*(zlen4/2/PROJdgn.fov)/SS;
 CX = (ZF+1)/2;
 CY = (ZF+1)/2 - yrelrad1 - yrelrad4;
 CZ = (ZF+1)/2;
-parfor x = 1:ZF
+for x = 1:ZF
     for y = 1:ZF
         for z = 1:ZF
             if (((x-CX)/xrelrad4)^2 + ((y-CY)/yrelrad4)^2 <= 1) && abs(z-CZ+zoffset1) <= zrelrad4
@@ -121,7 +121,7 @@ zrelrad5 = ZF*(zlen5/2/PROJdgn.fov)/SS;
 CX = (ZF+1)/2 + xoffset;
 CY = (ZF+1)/2; 
 CZ = (ZF+1)/2 + zrelrad1 + zrelrad5 - zoffset1;
-parfor x = 1:ZF
+for x = 1:ZF
     for y = 1:ZF
         for z = 1:ZF
             if (((x-CX)/xrelrad5)^2 + ((y-CY)/yrelrad5)^2 <= 1) && abs(z-CZ) <= zrelrad5

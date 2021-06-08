@@ -2,7 +2,7 @@
 % (v1a) 
 %===========================================
 
-function [SCRPTipt,OB,err] = SimResPhan200175150125100_v1a(SCRPTipt,OBipt)
+function [SCRPTipt,OB,err] = SimResPhan400350300250200_v1c(SCRPTipt,OBipt)
 
 Status2('done','Object Function Input',2);
 Status2('done','',3);

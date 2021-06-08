@@ -15,7 +15,6 @@ err.msg = '';
 % Return Panel Input
 %---------------------------------------------
 OB.method = OBipt.Func;
-OB.ObMatSz = str2double(OBipt.('ObMatSz'));
 OB.thk = str2double(OBipt.('Thick'));
 OB.len = str2double(OBipt.('Length'));
 

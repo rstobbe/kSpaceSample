@@ -2,7 +2,7 @@
 % 
 %===========================================
 
-function [OB,err] = SimResPhan200175150125100_v1c_Func(OB,INPUT)
+function [OB,err] = SimResPhan400350300250200_v1c_Func(OB,INPUT)
 
 Status2('busy','Create Numerical Object',2);
 Status2('done','',3);
@@ -24,11 +24,11 @@ clear INPUT;
 %---------------------------------------------
 M = ZF;
 OB.SphereDiam = 300;
-OB.ResDiam1 = 6.0;
-OB.ResDiam2 = 5.5;
-OB.ResDiam3 = 5.0;
-OB.ResDiam4 = 4.5;
-OB.ResDiam5 = 4.0;
+OB.ResDiam1 = 4.0;
+OB.ResDiam2 = 3.5;
+OB.ResDiam3 = 3.0;
+OB.ResDiam4 = 2.5;
+OB.ResDiam5 = 2.0;
 OB.YDist = 25;
 
 %--------------------------------------

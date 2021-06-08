@@ -68,7 +68,7 @@ if plotob == 1
     stop = round(sz(3)*0.9);
     if isfield(OB,'plot')
         if strcmp(OB.plot,'CentreSlice')
-            INPUT.Image = OB.Ob(:,:,sz/2);
+            INPUT.Image = OB.Ob(:,:,sz(3)/2);
             INPUT.numberslices = 1;
         else
             INPUT.Image = OB.Ob(:,:,start:stop);
@@ -81,6 +81,7 @@ if plotob == 1
     [MCHRS,err] = DefaultMontageChars_v1a(INPUT);
     MCHRS.MSTRCT.figno = 100;
     INPUT = MCHRS;
+    INPUT.Image = flip(INPUT.Image,2);
     if isfield(EFCT,'B0map')
         B0Map = EFCT.B0map;
         INPUT.Image(:,:,:,2) = B0Map(:,:,start:stop);

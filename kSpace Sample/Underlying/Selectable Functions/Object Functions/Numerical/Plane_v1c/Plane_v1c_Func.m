@@ -15,17 +15,20 @@ err.msg = '';
 %---------------------------------------------
 IMP = INPUT.IMP;
 PROJdgn = IMP.PROJdgn;
+ZF = INPUT.ZF;
+SS = INPUT.SS;
+clear INPUT;
 
 %---------------------------------------------
 % Sphere Relative Diameter
 %---------------------------------------------
-rThick = OB.thk/PROJdgn.fov;
-rLen = OB.len/PROJdgn.fov;
+rThick = (OB.thk/PROJdgn.fov)/SS;
+rLen = (OB.len/PROJdgn.fov)/SS;
 
 %---------------------------------------------
 % Test
 %---------------------------------------------
-M = OB.ObMatSz;
+M = ZF;
 Thk = round(rThick*M);
 Len = round(rLen*M);
 
@@ -44,15 +47,18 @@ Ob(botLen:topLen,botLen:topLen,botThk:topThk) = 1;
 %---------------------------------------------
 OB.Ob = Ob;
 OB.ObMatSz = M;
-OB.Thickness = (Thk/M)*PROJdgn.fov;
-OB.Length = (Len/M)*PROJdgn.fov;
+OB.Thickness = (Thk/M)*PROJdgn.fov*SS;
+OB.Length = (Len/M)*PROJdgn.fov*SS;
+OB.name = ['Plane',num2str(OB.Thickness),num2str(OB.Length)];
+OB.plot = 'CentreSlice';
 
 %---------------------------------------------
 % Panel Output
 %--------------------------------------------- 
-Panel(1,:) = {'ObMatSz',OB.ObMatSz,'Output'};
-Panel(2,:) = {'Thickness (mm)',OB.Thickness,'Output'};
-Panel(3,:) = {'Length (mm)',OB.Length,'Output'};
+Panel(1,:) = {'',[],'Output'};
+Panel(2,:) = {'ObFunc',OB.method,'Output'};
+Panel(3,:) = {'Thickness (mm)',OB.Thickness,'Output'};
+Panel(4,:) = {'Length (mm)',OB.Length,'Output'};
 
 PanelOutput = cell2struct(Panel,{'label','value','type'},2);
 OB.PanelOutput = PanelOutput;

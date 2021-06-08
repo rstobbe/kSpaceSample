@@ -136,6 +136,7 @@ if isempty(name)
     return
 end
 SAMP.name = name{1};
+SAMP.OB.name = name{1}(6:end);
 
 %---------------------------------------------
 % Return
