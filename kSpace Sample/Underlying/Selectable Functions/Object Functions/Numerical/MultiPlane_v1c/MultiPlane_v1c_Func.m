@@ -2,7 +2,7 @@
 % 
 %===========================================
 
-function [OB,err] = Plane_v1c_Func(OB,INPUT)
+function [OB,err] = MultiPlane_v1c_Func(OB,INPUT)
 
 Status2('busy','Create Plane Object',2);
 Status2('done','',3);
@@ -30,6 +30,10 @@ rLen = (OB.len/PROJdgn.fov)/SS;
 %---------------------------------------------
 M = ZF;
 Thk = round(rThick*M);
+Thk2 = Thk*2;
+Thk3 = Thk*3;
+Thk4 = Thk*4;
+Thk5 = Thk*5;
 Len = round(rLen*M);
 
 %--------------------------------------
@@ -38,8 +42,36 @@ Len = round(rLen*M);
 Ob = zeros(M,M,M);
 botLen = M/2 - ceil(Len/2);
 topLen = botLen + Len - 1;
-botThk = M/2 - ceil(Thk/2);
+botThk = 3*M/10;
 topThk = botThk + Thk - 1;
+%Ob(botLen:topLen,botLen:topLen,botThk:topThk) = 1;
+Ob(botThk:topThk,botLen:topLen,botLen:topLen) = 1;
+
+botLen = M/2 - ceil(Len/2);
+topLen = botLen + Len - 1;
+botThk = 4*M/10 + Thk;
+topThk = botThk + Thk2 - 1;
+%Ob(botLen:topLen,botLen:topLen,botThk:topThk) = 1;
+Ob(botThk:topThk,botLen:topLen,botLen:topLen) = 1;
+
+botLen = M/2 - ceil(Len/2);
+topLen = botLen + Len - 1;
+botThk = 5*M/10 + Thk+Thk2;
+topThk = botThk + Thk3 - 1;
+%Ob(botLen:topLen,botLen:topLen,botThk:topThk) = 1;
+Ob(botThk:topThk,botLen:topLen,botLen:topLen) = 1;
+
+botLen = M/2 - ceil(Len/2);
+topLen = botLen + Len - 1;
+botThk = 6*M/10 + Thk+Thk2+Thk3;
+topThk = botThk + Thk4 - 1;
+%Ob(botLen:topLen,botLen:topLen,botThk:topThk) = 1;
+Ob(botThk:topThk,botLen:topLen,botLen:topLen) = 1;
+
+botLen = M/2 - ceil(Len/2);
+topLen = botLen + Len - 1;
+botThk = 7*M/10 + Thk+Thk2+Thk3+Thk4;
+topThk = botThk + Thk5 - 1;
 %Ob(botLen:topLen,botLen:topLen,botThk:topThk) = 1;
 Ob(botThk:topThk,botLen:topLen,botLen:topLen) = 1;
 

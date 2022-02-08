@@ -3,7 +3,7 @@
 %      - Object defined FoV
 %===========================================
 
-function [SCRPTipt,OB,err] = CSF_v1d(SCRPTipt,OBipt)
+function [SCRPTipt,OB,err] = Cortex_v1d(SCRPTipt,OBipt)
 
 Status2('done','Object Function Input',2);
 Status2('done','',3);

@@ -2,7 +2,7 @@
 % 
 %===========================================
 
-function [OB,err] = WhiteMatter_v1d_Func(OB,INPUT)
+function [OB,err] = CSF_v1d_Func(OB,INPUT)
 
 Status2('busy','Return Numerical Object',2);
 Status2('done','',3);
@@ -29,8 +29,8 @@ OB.ObMatSz = M;
 OB.ObFoV = Out.Object.FoV * Out.Object.SS;
 OB.VoxelWid = OB.ObFoV/M;
 OB.VoxelVol = (OB.ObFoV/M)^3;
-OB.Ob = Out.Object.Mat(:,:,:,2);
-OB.name = Out.Object.Name;
+OB.Ob = Out.Object.Mat;
+OB.name = 'CSF';
 
 Effect.Type = 'MonoExpDecay';
 Effect.T2 = 53;

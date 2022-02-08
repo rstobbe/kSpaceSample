@@ -2,7 +2,7 @@
 % 
 %=========================================================
 
-function [EFCT,err] = EffectAddFromObject_v1a_Func(EFCT,INPUT)
+function [EFCT,err] = EffectAddOffResonance_v1a_Func(EFCT,INPUT)
 
 Status2('busy','Add Imaging Effect',2);
 Status2('done','',3);
@@ -74,7 +74,16 @@ if strcmp(prepostsamp,'post')
         Panel(2,:) = {'T2',EffectAdd.T2,'Output'};
         PanelOutput = cell2struct(Panel,{'label','value','type'},2);
     end    
-    
+
+    FreqRad = 2*pi*EFCT.OffRes/1000;
+    SigMod = exp(1i*FreqRad*samp);
+    %-
+    figure(1235123);
+    plot(samp,real(SigMod));
+    %-
+    [DatMat] = DatArr2Mat(SampDat,PROJimp.nproj,PROJimp.npro);
+    SigModMat = repmat(SigMod,[PROJimp.nproj 1]);
+    SampDat = DatMat2Arr(DatMat.*SigModMat,PROJimp.nproj,PROJimp.npro);    
 end
 
 

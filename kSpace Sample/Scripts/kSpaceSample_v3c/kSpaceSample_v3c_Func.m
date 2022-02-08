@@ -153,7 +153,6 @@ for m = 1:ObArr
         %---------------------------------------------
         func = str2func([SAMP.EffectAddFunc,'_Func']);  
         INPUT.IMP = IMP;
-        %INPUT.EffectAdd = OB.EffectAdd{m};         % remove
         INPUT.ObArrNum = m;
         INPUT.OB = OB;
         INPUT.KSMP = KSMP;

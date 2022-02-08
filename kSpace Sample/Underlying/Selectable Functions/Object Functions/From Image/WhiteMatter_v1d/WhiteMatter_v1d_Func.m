@@ -29,8 +29,8 @@ OB.ObMatSz = M;
 OB.ObFoV = Out.Object.FoV * Out.Object.SS;
 OB.VoxelWid = OB.ObFoV/M;
 OB.VoxelVol = (OB.ObFoV/M)^3;
-OB.Ob = Out.Object.Mat(:,:,:,3);
-OB.name = Out.Object.Name;
+OB.Ob = Out.Object.Mat;
+OB.name = 'WhiteMatter';
 
 Effect.Type = 'BiExpDecay';
 Effect.T2s = 14;
